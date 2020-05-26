@@ -36,7 +36,14 @@ void Draw::Startup(const std::pair<std::uint32_t, std::uint32_t> size)
 
 const std::shared_ptr<sgl::Texture>& Draw::GetDrawTexture() const
 {
-	return final_texture_;
+	// You can change this to:
+	// return deferred_textures_[0]; // Will give you the albedo.
+	// return deferred_textures_[1]; // Will give you the normal.
+	// return deferred_textures_[2]; // Will give you the MRO.
+	// return deferred_textures_[3]; // Will give you the Position.
+	// return lighting_textures_[0]; // Will give you the albedo (again).
+	// return lighting_textures_[1]; // Will give you the lighting.
+	return final_texture_; // Will give you the final image.
 }
 
 void Draw::RunDraw(const double dt)
